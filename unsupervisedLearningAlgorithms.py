@@ -26,10 +26,10 @@ plt.title('Mall customers')
 #Creating the model by KMeans
 clustering = KMeans(n_clusters=4, random_state=5).fit(df)
 labels = clustering.labels_  #Output of labels 0,1,2,3,4
-predict = clustering.predict([[140, 0], [12, 3]]) #Predict the cluster to which it belongs
+predict = clustering.predict([[90, 50], [12, 3]]) #Predict the cluster to which it belongs
 centroids = clustering.cluster_centers_
 
-print(labels, "\n", predict, "\n", centroids)
+print("\n\tSets\n",labels, "\n\n\t Predicts of  [[90, 50], [12, 3]]\n", predict, "\n\n\t Centroids\n", centroids)
 
 #Plot for centroids from MKmeas
 plt.subplot(2,2,2)
