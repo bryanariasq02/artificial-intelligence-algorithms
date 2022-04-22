@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+#Kmeans Sklearn
+
 #Import data
 url = 'docs/Mall_Customers.csv'
 df = pd.read_csv(url)
