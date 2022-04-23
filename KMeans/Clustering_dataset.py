@@ -21,10 +21,10 @@ dataset = dataset[pd.notnull(dataset[:,2])] #Filter without NAN in Annual Income
 print(dataset[:10])
 
 #Shortening the data to 200 rows
-dataset = dataset[:30]
+dataset = dataset[:1000]
 
 X_train = np.array(dataset)
-Modelo_Kmeans = KMeans (n_clusters=2)
+Modelo_Kmeans = KMeans (n_clusters=3)
 Modelo_Kmeans.fit(X_train)
 Centroides = Modelo_Kmeans.cluster_centers_
 Y_train = Modelo_Kmeans.labels_
@@ -37,7 +37,7 @@ for i in range(0,len(X_train)):
   print (X_train[i],' ',Y_train[i])
 print('')
 
-color_theme = np.array(['grey', 'b', 'y'])
+color_theme = np.array(['c', 'r', 'y', 'g'])
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 ax.scatter(X_train[:,0],X_train[:,1], X_train[:,2],  c=color_theme[Y_train])
@@ -46,3 +46,14 @@ ax.set_ylabel('Credit Score')
 ax.set_zlabel('Annual Income')
 
 plt.show()
+
+#Predict
+
+Target=np.ones((1, 3))
+Target[0,0]=1 #Term - Long Term
+Target[0,1]=600 #Credit Score
+Target[0,2]=420000 #Annuela icome
+
+print(Target.shape)
+#Making predictions
+print (Modelo_Kmeans.predict (Target))
