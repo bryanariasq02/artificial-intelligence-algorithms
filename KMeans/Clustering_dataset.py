@@ -24,7 +24,13 @@ print(dataset[:10])
 dataset = dataset[:1000]
 
 X_train = np.array(dataset)
-Modelo_Kmeans = KMeans (n_clusters=3)
+
+#Data scaling
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+X_train = scaler.fit_transform(X_train)
+
+Modelo_Kmeans = KMeans (n_clusters=4)
 Modelo_Kmeans.fit(X_train)
 Centroides = Modelo_Kmeans.cluster_centers_
 Y_train = Modelo_Kmeans.labels_
