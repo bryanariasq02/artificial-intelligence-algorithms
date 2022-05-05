@@ -16,10 +16,10 @@ dataset = np.array(dataset)
 X = dataset[:,0:21]
 Y = dataset[:,21]
 
-print("X")
-print(X[:10])
-print("Y")
-print(Y[:10])
+# print("X")
+# print(X[:10])
+# print("Y")
+# print(Y[:10])
 
 # Split input and output into training and testing sets
 X_train, X_test,Y_train, Y_test= train_test_split(X,Y,test_size=0.33,random_state=14541)
